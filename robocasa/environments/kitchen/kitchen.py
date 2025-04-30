@@ -242,7 +242,9 @@ class Kitchen(ManipulationEnv, metaclass=KitchenEnvMeta):
         use_distractors=False,
         translucent_robot=False,
         randomize_cameras=False,
+        forced_base_pos=None
     ):
+        self.forced_base_pos = forced_base_pos
         self.init_robot_base_pos = init_robot_base_pos
 
         # object placement initializer
@@ -456,6 +458,12 @@ class Kitchen(ManipulationEnv, metaclass=KitchenEnvMeta):
             ref_fixture=ref_fixture
         )
         robot_model = self.robots[0].robot_model
+
+        # override the original method, enforce x, y initial position if available
+        if self.forced_base_pos is not None:
+            robot_base_pos[0] = self.forced_base_pos[0]
+            robot_base_pos[1] = self.forced_base_pos[1]
+
         robot_model.set_base_xpos(robot_base_pos)
         robot_model.set_base_ori(robot_base_ori)
 
