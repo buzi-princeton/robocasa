@@ -242,9 +242,11 @@ class Kitchen(ManipulationEnv, metaclass=KitchenEnvMeta):
         use_distractors=False,
         translucent_robot=False,
         randomize_cameras=False,
-        forced_base_pos=None
+        forced_base_pos=None,
+        forced_base_euler=None
     ):
         self.forced_base_pos = forced_base_pos
+        self.forced_base_euler = forced_base_euler
         self.init_robot_base_pos = init_robot_base_pos
 
         # object placement initializer
@@ -463,6 +465,8 @@ class Kitchen(ManipulationEnv, metaclass=KitchenEnvMeta):
         if self.forced_base_pos is not None:
             robot_base_pos[0] = self.forced_base_pos[0]
             robot_base_pos[1] = self.forced_base_pos[1]
+        if self.forced_base_euler is not None:
+            robot_base_ori = self.forced_base_euler
 
         robot_model.set_base_xpos(robot_base_pos)
         robot_model.set_base_ori(robot_base_ori)

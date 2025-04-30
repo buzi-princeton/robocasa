@@ -5,7 +5,8 @@
   </asset>
   <worldbody>    
     <light pos="2.0 -2.0 2.0" dir="0.01 0.01 -1" specular="0.3 0.3 0.3" ambient="0.3 0.3 0.3" diffuse="0.3 0.3 0.3" directional="true" castshadow="false"/>
-    <camera name="view_topdown" pos="3 -1 5" quat="1 0 0 0" mode="fixed" fovy="60"/>
+    <!-- <camera name="view_topdown" pos="3 -1 5" quat="1 0 0 0" mode="fixed" fovy="60"/> -->
+    <camera name="view_topdown" pos="2 -2 7" quat="1 0 0 0" mode="fixed" fovy="60"/>
 
     <!-- front view -->
     <!-- <camera mode="fixed" name="frontview" pos="1.6 0 1.45" quat="0.56 0.43 0.43 0.56"/> -->
